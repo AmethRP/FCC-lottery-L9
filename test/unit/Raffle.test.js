@@ -54,9 +54,9 @@ describe("Raffle Unit Tests", function () {
             // we pretend to be a chainlink keeper
             await raffle.performUpkeep([])
             console.log("state changed to calculating")
-            await expect(
-                raffle.enterRaffle({ value: raffleEntranceFee })
-            ).to.be.revertedWithCustomError(raffle, "Raffle__NotOpen")
+            await expect(raffle.enterRaffle({ value: raffleEntranceFee })).to.be.revertedWith(
+                "Raffle__NotOpen"
+            )
         })
     })
 })
